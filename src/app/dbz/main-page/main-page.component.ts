@@ -1,13 +1,44 @@
 import { Component } from '@angular/core';
+import { Personaje } from '../interfaces/dbz.interface';
+
+
 
 @Component({
   selector: 'app-main-page',
-  styleUrls: ['./main-page.component.css'],
-  template:`<h1>Dragon Ball Z</h1>
-  <hr>`
+  templateUrl: './main-page.component.html'
 })
 export class MainPageComponent  {
 
+
+
+  nuevo:Personaje={
+    nombre:'',
+    poder:0
+  }
+
+  personajes:Personaje[]=[
+      {
+        nombre:'Goku',
+        poder:15000
+      },
+      {
+        nombre:'Vegeta',
+        poder:14500
+      }
+  ]
+    
   
+
+  agregar(){
+    if(this.nuevo.nombre.trim().length===0){return;}
+
+    console.log(this.nuevo);
+
+    this.personajes.push(this.nuevo);
+    this.nuevo={
+      nombre:'',
+      poder:0
+    }
+  }
 
 }

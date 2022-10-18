@@ -3,26 +3,33 @@
 <hr>
 
 <div class="row">
-    <h3>Personajes</h3>
-    <hr>
+
     <div class="col">
-        <ul>
-            <li>Krilin - 700</li>
-            <li>Goku - 17000</li>
-            <li>Vegeta - 16500</li>
-        </ul>
+        <app-personajes [personajes]="personajes">
+        </app-personajes>
     </div>
 
     <div class="col">
         <h3>Agregar</h3>    
         <hr>
 
-        <form>
+        <form (ngSubmit)="agregar()">
 
-            <input type="text" placeholder="Nombre">
-            <input type="number" placeholder="Poder">
+            <input
+                type="text"
+                placeholder="Nombre"
+                name="nombre"
+                [(ngModel)]="nuevo.nombre"
+            >
 
-            <button>
+            <input 
+                type="number" 
+                placeholder="Poder"
+                name="poder"
+                [(ngModel)]="nuevo.poder"
+            >
+
+            <button type="submit">
                 Agregar
             </button>
         </form>
